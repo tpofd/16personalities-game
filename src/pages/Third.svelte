@@ -1,5 +1,6 @@
 <script>
   import BackButton from '../components/BackButton.svelte'
+import FacebookShare from '../components/ShareButtons.svelte'
   import MainButton from '../components/MainButton.svelte'
   import {chosenLocation} from '../stores'
 

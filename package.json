@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "sirv-cli": "^1.0.0",
+    "svelte-material-icons": "^1.0.3",
     "svelte-preprocess": "^4.6.1",
     "svelte-swipe": "^1.7.1",
     "tinro": "^0.3.7"
