@@ -12,8 +12,8 @@
     First,
     Second,
     First
-]
-
+  ];
+  pagesAmount.set(pages.length);
 </script>
 
 <main>
