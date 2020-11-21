@@ -5,7 +5,7 @@
 
 </script>
 
-<h1>Page 3</h1>
+<h1>Select a situation</h1>
 <BackButton/>
 
 <div on:click={() => chosenLocation.set('Party')}

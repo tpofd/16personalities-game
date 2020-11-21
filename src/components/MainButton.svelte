@@ -30,7 +30,7 @@
     }
 
     button:disabled {
-        background: #3f3f3e;
+        background: #282828;
         color: #ffffff;
         border-color: transparent;
     }
