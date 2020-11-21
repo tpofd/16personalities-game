@@ -23,19 +23,29 @@
 
 <style>
   .select-button {
+    padding: 1%;
+    margin-bottom: 1%;
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    border: none;
+    border-color: transparent;
+    border-radius: 10%;
     transition: all 0.5s ease;
+  }
+
+  img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
   }
 
   h1 {
     align-self: center;
     font-weight: 600;
     color: #3C9294;
+    font-size: var(--hero-fontsize);
   }
   .selected {
-    border: 1px solid green;
+    background-color: #ECECEC;
   }
 </style>

@@ -28,4 +28,10 @@
     button:focus {
       background: gainsboro;
     }
+
+    button:disabled {
+        background: #3f3f3e;
+        color: #ffffff;
+        border-color: transparent;
+    }
   </style>
