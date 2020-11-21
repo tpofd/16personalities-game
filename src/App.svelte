@@ -8,13 +8,15 @@
   import Second from './pages/Second.svelte';
   import Third from './pages/Third.svelte';
   import Fourth from './pages/Fourth.svelte';
+  import Fifth from './pages/Fifth.svelte';
   import {currentPage, changePage, pagesAmount, lastPage} from './stores';
 
   const pages = [
-    First,
-    Second,
-    Third,
-    Fourth,
+    // First,
+    // Second,
+    // Third,
+    // Fourth,
+    Fifth
   ];
   pagesAmount.set(pages.length);
 </script>

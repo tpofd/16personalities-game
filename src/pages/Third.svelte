@@ -1,6 +1,6 @@
 <script>
   import BackButton from '../components/BackButton.svelte'
-import FacebookShare from '../components/ShareButtons.svelte'
+  import FacebookShare from '../components/ShareButtons.svelte'
   import MainButton from '../components/MainButton.svelte'
   import {chosenLocation} from '../stores'
 
@@ -34,6 +34,22 @@ import FacebookShare from '../components/ShareButtons.svelte'
     transition: all 0.5s ease;
   }
 
+  .select-button:hover {
+    background-color: #EEF6FC;
+  }
+
+  .selected-button:active {
+    background-color: #EEF6FC;
+  }
+
+  .select-button:focus {
+    background-color: #EEF6FC;
+  }
+
+  .selected {
+    background-color: #EEF6FC;
+  }
+
   img {
     max-width: 500px;
     width: 100%;
@@ -45,8 +61,5 @@ import FacebookShare from '../components/ShareButtons.svelte'
     font-weight: 600;
     color: #3C9294;
     font-size: var(--hero-fontsize);
-  }
-  .selected {
-    background-color: #ECECEC;
   }
 </style>

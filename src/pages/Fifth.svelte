@@ -1,5 +1,4 @@
 <script>
-    import FacebookShare from '../components/FacebookShare.svelte'
 </script>
 
-<FacebookShare></FacebookShare>
+<h1>Fifth</h1>
