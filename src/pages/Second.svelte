@@ -1,5 +1,5 @@
 <script>
-  import {changePage} from '../stores';
+  import {chosenFirst, chosenSecond} from '../stores';
   import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
   import BackButton from '../components/BackButton.svelte';
   import MainButton from '../components/MainButton.svelte';
@@ -20,6 +20,12 @@
   let firstChoice = 0;
   let secondChoice = 0;
 
+  function saveData(){
+    chosenFirst.set(personalities[firstChoice]);
+    chosenSecond.set(personalities[secondChoice]);
+    console.log($chosenFirst);
+    console.log($chosenSecond);
+  }
 </script>
 
 <div class="page">
@@ -58,7 +64,7 @@
     <h2>You chose: {personalities[secondChoice].capitalize()}</h2>
   </div>
   <div class="button-block">
-    <MainButton/>
+    <MainButton callback={saveData}/>
   </div>
 </div>
 

@@ -6,7 +6,7 @@
   <div class="page">
     <img src="/intro-picture.png" alt="intro picture">
     <h1>Make sure you have passed the test <br> <a href="https://www.16personalities.com/">16 personalities</a></h1>
-    <MainButton button_text="Next"/>
+    <MainButton buttonText="Next"/>
   </div>
 </div>
 <style>
