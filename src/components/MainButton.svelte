@@ -3,7 +3,7 @@
     export let button_text = "Select";
   </script>
   
-  <button on:click={() => changePage(-1)}>{button_text}</button>
+  <button on:click={() => changePage(+1)}>{button_text}</button>
   
   <style>
     button {
@@ -11,7 +11,7 @@
       width: 260px;
       height: 58px;
       color: #FFFFFF;
-      border: none;
+      border: 2px solid transparent;
       transition: background-color 0.5s ease;
       border-radius: 50px; 
       align-items: center;
@@ -20,6 +20,8 @@
     }
     button:hover {
       background: #f4f4f4;
+      color: #3C9294;
+      border-color: #3C9294;
     }
     button:focus {
       background: gainsboro;

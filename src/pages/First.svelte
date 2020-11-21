@@ -1,23 +1,28 @@
 <script>
-  import {changePage} from '../stores';
+  import MainButton from '../components/MainButton.svelte';
 </script>
 
 <div class="page">
   <img src="/intro-picture.png" alt="intro picture">
   <h1>Make sure you passed the test <a href="https://www.16personalities.com/">16 personalities</a></h1>
-  <button on:click={() => changePage(+1)}>I have passed</button>
+  <MainButton button_text="Next"/>
 </div>
 
 <style>
-  :root {
-    background: #eceded;
-  }
   .page {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  /*div {*/
-  /*  background: #eceded;*/
-  /*}*/
+  h1 {
+    text-align: center;
+  }
+
+  a {
+
+  }
+
 
   img {
     width: 100%;

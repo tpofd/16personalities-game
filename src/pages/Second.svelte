@@ -57,10 +57,14 @@ import MainButton from '../components/MainButton.svelte';
     </div>
     <h2>You chose: {personalities[secondChoice].capitalize()}</h2>
   </div>
-  <MainButton></MainButton>
+  <div class="button-block">
+    <MainButton/>
+  </div>
 </div>
 
 <style>
+  :root {
+  }
   img {
     width: 70%;
     height: auto;
@@ -107,5 +111,10 @@ import MainButton from '../components/MainButton.svelte';
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  .button-block {
+    display: grid;
+    place-items: center;
+    height: 200px;
   }
 </style>

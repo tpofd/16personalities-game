@@ -3,7 +3,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap" rel="stylesheet">
 </svelte:head>
 <script>
-  import {fly} from 'svelte/transition';
+  import {fly, fade} from 'svelte/transition';
   import First from './pages/First.svelte';
   import Second from './pages/Second.svelte';
   import Third from './pages/Third.svelte';
@@ -23,7 +23,7 @@
       {#if $currentPage === i}
         <div class="page-wrapper"
              in:fly={{x: ($currentPage - $lastPage) * 50}}
-             out:fly={{x: ($currentPage - $lastPage) * 50}}>
+             out:fade>
           <svelte:component this={page}/>
         </div>
       {/if}
