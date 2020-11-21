@@ -1,44 +1,51 @@
 <script>
+  import {fly} from 'svelte/transition';
+  import First from './pages/First.svelte';
+  import Second from './pages/Second.svelte';
+  import {currentPage, changePage, pagesAmount, lastPage} from './stores';
 
-  import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
+  const pages = [First, Second, First];
+  pagesAmount.set(pages.length);
 
-  const swipeConfig = {
-    autoplay: false,
-    delay: 2000,
-    showIndicators: true,
-    transitionDuration: 1000,
-    defaultIndex: 0,
-  };
+
 </script>
 
+<main>
+  <div class="animation-wrapper">
+    {#each Array.from(pages.entries()) as [i, page]}
+      {#if $currentPage === i}
+        <div class="page-wrapper"
+             in:fly={{x: ($currentPage - $lastPage) * 50}}
+             out:fly={{x: ($currentPage - $lastPage) * 50}}
+        >
+          <svelte:component this={page}/>
+        </div>
+      {/if}
+    {/each}
+  </div>
+  <p>{$currentPage}</p>
+<!--  <button on:click={() => changePage(-1)}>-</button>-->
+</main>
+
 <style>
-  .swipe-holder {
-    height: 30vh;
+  main {
     width: 100%;
+    height: 100%;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  .page-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-top: -100px;
   }
+  .animation-wrapper{
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    place-items: center;
+  }
+
 </style>
-
-<div class="swipe-holder">
-  <Swipe {...swipeConfig}>
-    <SwipeItem>
-      <h1>1</h1>
-    </SwipeItem>
-
-    <SwipeItem>
-      <h1>2</h1>
-    </SwipeItem>
-
-    <SwipeItem>
-      <h1>3</h1>
-    </SwipeItem>
-
-    <SwipeItem>
-      <h1>4</h1>
-    </SwipeItem>
-  </Swipe>
-</div>
