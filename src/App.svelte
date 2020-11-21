@@ -7,13 +7,14 @@
   import First from './pages/First.svelte';
   import Second from './pages/Second.svelte';
   import Third from './pages/Third.svelte';
+  import Fourth from './pages/Fourth.svelte';
   import {currentPage, changePage, pagesAmount, lastPage} from './stores';
 
   const pages = [
     First,
     Second,
     Third,
-
+    Fourth,
   ];
   pagesAmount.set(pages.length);
 </script>
@@ -34,11 +35,11 @@
 
 <style>
   :root {
-    --hero-fontsize: calc((100vw - 480px) / (1280 - 480) * (28 - 15) + 15px);
+    --hero-fontsize: calc((100vw - 480px) / (1280 - 480) * (32 - 15) + 15px);
     --plain-fontsize: calc((100vw - 480px) / (1280 - 480) * (24 - 16) + 16px);
   }
 
-  :global(body){
+  :global(body) {
     font-family: Comfortaa, sans-serif;
   }
 
