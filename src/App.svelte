@@ -7,26 +7,28 @@
   import First from './pages/First.svelte';
   import Second from './pages/Second.svelte';
   import Third from './pages/Third.svelte';
-  import Fourth from './pages/Fourth.svelte';
-  import Fifth from './pages/Fifth.svelte';
-  import {currentPage, changePage, pagesAmount, lastPage} from './stores';
+  // import Fourth from './pages/Fourth.svelte';
+  // import Fifth from './pages/Fifth.svelte';
+  // import {currentPage, changePage, pagesAmount, lastPage} from './stores';
+  import {pagesStore} from './stores';
 
   const pages = [
-    // First,
-    // Second,
-    // Third,
+    First,
+    Second,
+    Third,
     // Fourth,
-    Fifth
+    // Fifth
   ];
-  pagesAmount.set(pages.length);
+  $pagesStore.amount = pages.length;
+
 </script>
 
 <main>
   <div class="animation-wrapper">
     {#each Array.from(pages.entries()) as [i, page]}
-      {#if $currentPage === i}
+      {#if $pagesStore.current === i}
         <div class="page-wrapper"
-             in:fly={{x: ($currentPage - $lastPage) * 50}}
+             in:fly={{x: ($pagesStore.current - $pagesStore.last) * 50}}
              out:fade>
           <svelte:component this={page}/>
         </div>

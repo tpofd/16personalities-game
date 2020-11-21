@@ -1,8 +1,13 @@
 <script>
   import {beforeUpdate, afterUpdate} from 'svelte';
+  import {fly} from 'svelte/transition';
 
   let div;
   let autoscroll;
+  let colors = {me: "#3f8f6f", someone: "#594265"};
+
+  let answerA = 'A';
+  let answerB = 'B';
 
   beforeUpdate(() => {
     autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
@@ -14,42 +19,34 @@
 
 
   let comments = [
-    {author: 'eliza', text: 'Hello!'}
+    {author: 'someone', text: 'Hello!'}
   ];
 
-  function handleKeydown(event) {
-    if (event.key === 'Enter') {
-      const text = event.target.value;
-      if (!text) return;
+  function send(choice) {
+    comments = comments.concat({
+      author: 'me',
+      text: choice
+    });
+    const reply = 'B. Obama - ' + choice;
 
+    setTimeout(() => {
       comments = comments.concat({
-        author: 'user',
-        text
+        author: 'someone',
+        text: '...',
+        placeholder: true
       });
 
-      event.target.value = '';
-
-      const reply = 'Bot - ' + text;
-
       setTimeout(() => {
-        comments = comments.concat({
-          author: 'eliza',
-          text: '...',
-          placeholder: true
+        comments = comments.filter(comment => !comment.placeholder).concat({
+          author: 'someone',
+          text: reply
         });
-
-        setTimeout(() => {
-          comments = comments.filter(comment => !comment.placeholder).concat({
-            author: 'eliza',
-            text: reply
-          });
-        }, 500 + Math.random() * 500);
-      }, 200 + Math.random() * 200);
-    }
+      }, 500 + Math.random() * 500);
+    }, 200 + Math.random() * 200);
   }
 </script>
 
-<div class="chat">
+<div class="chat" style="--me-color: {colors.me}; --someone-color: {colors.someone}">
   <div class="scrollable" bind:this={div}>
     {#each comments as comment}
       <article class={comment.author}>
@@ -57,11 +54,10 @@
       </article>
     {/each}
   </div>
-
-  <input on:keydown={handleKeydown}>
+  <div class="timer"></div>
   <div class="button-block">
-    <button><span>A</span></button>
-    <button><span>B</span></button>
+    <button on:click={() => send(answerA)}><span>{answerA}</span></button>
+    <button on:click={() => send(answerB)}><span>{answerB}</span></button>
   </div>
 </div>
 
@@ -72,7 +68,8 @@
     display: flex;
     flex-direction: column;
     height: 300px;
-    max-width: 320px;
+    max-width: 350px;
+    width: 100%;
   }
 
   .scrollable {
@@ -86,30 +83,33 @@
     margin: 0.5em 0;
   }
 
-  .user {
+  .me {
     text-align: right;
   }
 
   button {
     width: 50%;
   }
+
   button span {
     text-align: center;
     width: 100%;
     padding: 0;
   }
+
   span {
     padding: 0.5em 1em;
     display: inline-block;
   }
 
-  .eliza span {
-    background-color: #eee;
+  .someone span {
+    background-color: var(--someone-color);
     border-radius: 1em 1em 1em 0;
+    color: white;
   }
 
-  .user span {
-    background-color: #0074D9;
+  .me span {
+    background-color: var(--me-color);
     color: white;
     border-radius: 1em 1em 0 1em;
     word-break: break-all;
@@ -119,4 +119,5 @@
     display: flex;
     width: 100%;
   }
+
 </style>

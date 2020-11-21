@@ -1,8 +1,9 @@
 <script>
-  import {chosenFirst, chosenSecond} from '../stores';
+  // import {chosenFirst, chosenSecond} from '../stores';
   import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
   import BackButton from '../components/BackButton.svelte';
   import MainButton from '../components/MainButton.svelte';
+  import {formsStore} from '../stores';
 
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -20,10 +21,12 @@
   let firstChoice = 0;
   let secondChoice = 0;
 
-  $: {
-    chosenFirst.set(personalities[firstChoice]);
-    chosenSecond.set(personalities[secondChoice]);
-  }
+  $: formsStore.update(obj => {
+    obj.chosenFirst = personalities[firstChoice];
+    obj.chosenSecond = personalities[secondChoice];
+    return obj;
+  });
+
 </script>
 
 <div class="page">
