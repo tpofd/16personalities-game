@@ -7,7 +7,7 @@
   import First from './pages/First.svelte';
   import Second from './pages/Second.svelte';
   import Third from './pages/Third.svelte';
-  // import Fourth from './pages/Fourth.svelte';
+  import Fourth from './pages/Fourth.svelte';
   // import Fifth from './pages/Fifth.svelte';
   // import {currentPage, changePage, pagesAmount, lastPage} from './stores';
   import {pagesStore} from './stores';
@@ -16,7 +16,7 @@
     First,
     Second,
     Third,
-    // Fourth,
+    Fourth,
     // Fifth
   ];
   $pagesStore.amount = pages.length;
