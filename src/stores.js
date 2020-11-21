@@ -18,7 +18,5 @@ export function changePage(value) {
   if (-1 < updated && updated < get(pagesAmount)){
     lastPage.set(current);
     currentPage.update(n => n + value);
-    console.log("currentPage: " + get(currentPage));
-    console.log("lastPage: " + get(lastPage));
   }
 }

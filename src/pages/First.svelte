@@ -2,13 +2,20 @@
   import MainButton from '../components/MainButton.svelte';
 </script>
 
-<div class="page">
-  <img src="/intro-picture.png" alt="intro picture">
-  <h1>Make sure you have passed the test <br> <a href="https://www.16personalities.com/">16 personalities</a></h1>
-  <MainButton button_text="Next"/>
+<div class="wrapper">
+  <div class="page">
+    <img src="/intro-picture.png" alt="intro picture">
+    <h1>Make sure you have passed the test <br> <a href="https://www.16personalities.com/">16 personalities</a></h1>
+    <MainButton button_text="Next"/>
+  </div>
 </div>
-
 <style>
+  .wrapper {
+    width: 100%;
+    height: 97vh;
+    display: grid;
+    place-items: center;
+  }
   .page {
     width: 100%;
     display: flex;

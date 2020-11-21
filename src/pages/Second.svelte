@@ -2,7 +2,7 @@
   import {changePage} from '../stores';
   import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
   import BackButton from '../components/BackButton.svelte';
-import MainButton from '../components/MainButton.svelte';
+  import MainButton from '../components/MainButton.svelte';
 
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -91,6 +91,7 @@ import MainButton from '../components/MainButton.svelte';
   }
 
   .page {
+    margin-top: 50px;
     width: 80%;
     display: flex;
     flex-direction: column;
