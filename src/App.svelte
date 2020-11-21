@@ -12,7 +12,8 @@
   const pages = [
     First,
     Second,
-    Third
+    Third,
+    First
   ];
   pagesAmount.set(pages.length);
 </script>

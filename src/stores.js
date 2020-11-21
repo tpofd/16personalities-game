@@ -10,6 +10,9 @@ export const pagesAmount = writable(0);
 export const chosenFirst = writable("");
 export const chosenSecond = writable("");
 
+//Third
+export const chosenLocation = writable("");
+
 
 export function changePage(value) {
   let current = get(currentPage);
