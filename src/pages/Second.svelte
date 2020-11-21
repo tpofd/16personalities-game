@@ -1,7 +1,13 @@
 <script>
   import {changePage} from '../stores';
   import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
+  import BackButton from '../components/BackButton.svelte';
 
+  String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  }
+
+  const personalities = ['commander', 'logician', 'protagonist'];
   const swipeConfig = {
     autoplay: false,
     delay: 2000,
@@ -10,44 +16,94 @@
     defaultIndex: 0,
   };
 
-
-
+  let firstChoice = 0;
+  let secondChoice = 0;
 </script>
 
-<div class="swipe-holder">
-<!--  <Swipe {...swipeConfig}>-->
-<!--    <SwipeItem>-->
-<!--      <h1>1</h1>-->
-<!--    </SwipeItem>-->
+<div class="page">
+  <h1>Choose your personality type and friend's one</h1>
+  <BackButton/>
+  <div class="choose-card">
+    <h1>Choose the first type</h1>
+    <div class="swipe-holder">
+      <Swipe bind:active_item={firstChoice} {...swipeConfig}>
+        {#each personalities as person}
+          <SwipeItem>
+            <div class="img-wrapper">
+              <img src="/personalities/{person}.svg" alt={person}>
+            </div>
+          </SwipeItem>
+        {/each}
+      </Swipe>
+    </div>
+    <h2>You chose: {personalities[firstChoice].capitalize()}</h2>
 
-<!--    <SwipeItem>-->
-<!--      <h1>2</h1>-->
-<!--    </SwipeItem>-->
-
-<!--    <SwipeItem>-->
-<!--      <h1>3</h1>-->
-<!--    </SwipeItem>-->
-
-<!--    <SwipeItem>-->
-<!--      <h1>4</h1>-->
-<!--    </SwipeItem>-->
-<!--  </Swipe>-->
-  <button on:click={() => changePage(-1)}>Go back</button>
-
+  </div>
+  <hr>
+  <div class="choose-card">
+    <h1>Choose the second type</h1>
+    <div class="swipe-holder">
+      <Swipe bind:active_item={secondChoice} {...swipeConfig}>
+        {#each personalities as person}
+          <SwipeItem>
+            <div class="img-wrapper">
+              <img src="/personalities/{person}.svg" alt={person}>
+            </div>
+          </SwipeItem>
+        {/each}
+      </Swipe>
+    </div>
+    <h2>You chose: {personalities[secondChoice].capitalize()}</h2>
+  </div>
 </div>
 
-
 <style>
-  .swipe-holder {
-    width: 300px;
-    height: 300px;
-
-    /*height: 30vh;*/
-    /*width: 100%;*/
+  img {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  h1, h2 {
+    text-align: center;
+  }
+  h1{
+    font-size: var(--hero-fontsize);
+  }
+  h2 {
+    font-size: var(--plain-fontsize);
+  }
+
+  hr {
+    width: 70vw;
+  }
+
+  .swipe-holder {
+    height: 40vw;
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .page {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-wrapper {
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+  }
+
+  .choose-card {
+    /*padding: 30px;*/
+    max-width: 400px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 </style>
