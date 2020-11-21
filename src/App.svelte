@@ -1,30 +1,44 @@
 <script>
-	export let name;
+
+  import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
+
+  const swipeConfig = {
+    autoplay: false,
+    delay: 2000,
+    showIndicators: true,
+    transitionDuration: 1000,
+    defaultIndex: 0,
+  };
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+  .swipe-holder {
+    height: 30vh;
+    width: 100%;
+  }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 </style>
+
+<div class="swipe-holder">
+  <Swipe {...swipeConfig}>
+    <SwipeItem>
+      <h1>1</h1>
+    </SwipeItem>
+
+    <SwipeItem>
+      <h1>2</h1>
+    </SwipeItem>
+
+    <SwipeItem>
+      <h1>3</h1>
+    </SwipeItem>
+
+    <SwipeItem>
+      <h1>4</h1>
+    </SwipeItem>
+  </Swipe>
+</div>
