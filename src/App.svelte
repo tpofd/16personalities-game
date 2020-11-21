@@ -12,9 +12,9 @@
   import {currentPage, changePage, pagesAmount, lastPage} from './stores';
 
   const pages = [
-    // First,
-    // Second,
-    // Third,
+    First,
+    Second,
+    Third,
     // Fourth,
     Fifth
   ];
