@@ -2,9 +2,10 @@
     import {changePage} from '../stores';
     export let buttonText = "Select";
     export let callback = () => {};
+    export let disabled = false;
   </script>
   
-  <button on:click={() => {callback(); changePage(+1)}}>{buttonText}</button>
+  <button {disabled} on:click={() => {callback(); changePage(+1)}}>{buttonText}</button>
   
   <style>
     button {

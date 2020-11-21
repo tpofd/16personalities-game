@@ -20,6 +20,7 @@
   let firstChoice = 0;
   let secondChoice = 0;
 
+
   function saveData(){
     chosenFirst.set(personalities[firstChoice]);
     chosenSecond.set(personalities[secondChoice]);
