@@ -15,18 +15,7 @@
     delay: 2000,
     showIndicators: true,
     transitionDuration: 1000,
-    defaultIndex: 0,
   };
-
-  let firstChoice = 0;
-  let secondChoice = 0;
-
-  $: formsStore.update(obj => {
-    obj.chosenFirst = personalities[firstChoice];
-    obj.chosenSecond = personalities[secondChoice];
-    return obj;
-  });
-
 </script>
 
 <div class="page">
@@ -35,7 +24,8 @@
   <div class="choose-card">
     <h1>Choose the first type</h1>
     <div class="swipe-holder">
-      <Swipe bind:active_item={firstChoice} {...swipeConfig}>
+      <Swipe bind:active_item={$formsStore.firstChoice} {...swipeConfig}
+             defaultIndex={$formsStore.firstChoice}>
         {#each personalities as person}
           <SwipeItem>
             <div class="img-wrapper">
@@ -45,14 +35,14 @@
         {/each}
       </Swipe>
     </div>
-    <h2>You chose: {personalities[firstChoice].capitalize()}</h2>
-
+    <h2>You chose: {personalities[$formsStore.firstChoice].capitalize()}</h2>
   </div>
   <hr>
   <div class="choose-card">
     <h1>Choose the second type</h1>
     <div class="swipe-holder">
-      <Swipe bind:active_item={secondChoice} {...swipeConfig}>
+      <Swipe bind:active_item={$formsStore.secondChoice} {...swipeConfig}
+             defaultIndex={($formsStore.secondChoice)}>
         {#each personalities as person}
           <SwipeItem>
             <div class="img-wrapper">
@@ -62,7 +52,7 @@
         {/each}
       </Swipe>
     </div>
-    <h2>You chose: {personalities[secondChoice].capitalize()}</h2>
+    <h2>You chose: {personalities[$formsStore.secondChoice].capitalize()}</h2>
   </div>
   <div class="button-block">
     <MainButton/>

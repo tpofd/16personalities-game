@@ -11,7 +11,7 @@ pagesStore.subscribe(val => localStorage.setItem("pagesStore", JSON.stringify(va
 
 
 saved = JSON.parse(localStorage.getItem("formsStore"))
-export const formsStore = writable(saved || {chosenFirst: "", chosenSecond: "", location: ""});
+export const formsStore = writable(saved || {firstChoice: 0, secondChoice: 0, location: ""});
 formsStore.subscribe(val => localStorage.setItem("formsStore", JSON.stringify(val)));
 
 
