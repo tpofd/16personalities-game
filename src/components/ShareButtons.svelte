@@ -37,6 +37,7 @@
 <style>
     .share-btns {
         display: flex;
+        margin-bottom: 2%;
     }
 
     .resp-sharing-button__link,
