@@ -6,18 +6,18 @@
   import {fly} from 'svelte/transition';
   import First from './pages/First.svelte';
   import Second from './pages/Second.svelte';
+  import Third from './pages/Third.svelte';
   import {currentPage, changePage, pagesAmount, lastPage} from './stores';
 
   const pages = [
     First,
     Second,
-    First
+    Third
   ];
   pagesAmount.set(pages.length);
 </script>
 
 <main>
-  <p>{$currentPage}</p>
   <div class="animation-wrapper">
     {#each Array.from(pages.entries()) as [i, page]}
       {#if $currentPage === i}

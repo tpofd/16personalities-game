@@ -13,9 +13,9 @@
 <style>
   button {
     position: fixed;
-    left: 15px;
-    top: 15px;
-    background: #FFFFFF;
+    left: 25px;
+    top: 25px;
+    background: transparent;
     border: none;
     transition: background-color 0.5s ease;
   }

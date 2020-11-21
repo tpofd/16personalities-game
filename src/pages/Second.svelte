@@ -18,6 +18,7 @@
 
   let firstChoice = 0;
   let secondChoice = 0;
+
 </script>
 
 <div class="page">
@@ -79,9 +80,8 @@
   }
 
   .swipe-holder {
-    height: 40vw;
-    max-height: 300px;
-    width: 100%;
+    height: 350px;
+    width: 350px;
   }
 
   .page {
@@ -94,12 +94,12 @@
   .img-wrapper {
     display: flex;
     align-items: center;
-    /*justify-content: center;*/
   }
 
   .choose-card {
-    /*padding: 30px;*/
-    max-width: 400px;
+    width: 70%;
+    max-width: 600px;
+    min-width: 240px;
     min-height: 300px;
     display: flex;
     flex-direction: column;

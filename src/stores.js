@@ -5,6 +5,12 @@ export const currentPage = writable(0);
 export const lastPage = writable(0)
 export const pagesAmount = writable(0);
 
+
+// Second
+export const chosenFirst = writable("");
+export const chosenSecond = writable("");
+
+
 export function changePage(value) {
   let current = get(currentPage);
   let updated = current + value;

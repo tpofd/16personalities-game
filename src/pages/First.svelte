@@ -9,12 +9,15 @@
 </div>
 
 <style>
+  :root {
+    background: #eceded;
+  }
   .page {
     width: 100%;
   }
-  div {
-    background: #eceded;
-  }
+  /*div {*/
+  /*  background: #eceded;*/
+  /*}*/
 
   img {
     width: 100%;
