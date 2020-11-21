@@ -17,6 +17,7 @@
   }
   h1 {
     text-align: center;
+    font-size: var(--hero-fontsize);
   }
   a {
     transition: color 0.5s ease;
@@ -26,9 +27,8 @@
     text-decoration: none;
   }
 
-
   img {
-    max-width: 950px;
+    max-width: 500px;
     width: 100%;
     height: auto;
   }

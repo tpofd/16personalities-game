@@ -9,8 +9,6 @@
   <style>
     button {
       background-color: #3C9294;
-      width: 260px;
-      height: 58px;
       color: #FFFFFF;
       border: 2px solid transparent;
       transition: background-color 0.5s ease;
@@ -18,6 +16,8 @@
       align-items: center;
       justify-content: center;
       font-weight: 600;
+      font-size: var(--hero-fontsize);
+      padding: 10px 30px;
     }
     button:hover {
       background: #f4f4f4;

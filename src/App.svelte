@@ -33,7 +33,7 @@
 
 <style>
   :root {
-    --hero-fontsize: calc((100vw - 480px) / (1280 - 480) * (28 - 15) + 20px);
+    --hero-fontsize: calc((100vw - 480px) / (1280 - 480) * (28 - 15) + 15px);
     --plain-fontsize: calc((100vw - 480px) / (1280 - 480) * (24 - 16) + 16px);
   }
 
