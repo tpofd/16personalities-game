@@ -4,7 +4,7 @@
 
 <div class="page">
   <img src="/intro-picture.png" alt="intro picture">
-  <h1>Make sure you passed the test <a href="https://www.16personalities.com/">16 personalities</a></h1>
+  <h1>Make sure you have passed the test <br> <a href="https://www.16personalities.com/">16 personalities</a></h1>
   <MainButton button_text="Next"/>
 </div>
 
@@ -18,13 +18,17 @@
   h1 {
     text-align: center;
   }
-
   a {
-
+    transition: color 0.5s ease;
+  }
+  a:hover {
+    color: #318fa6;
+    text-decoration: none;
   }
 
 
   img {
+    max-width: 950px;
     width: 100%;
     height: auto;
   }

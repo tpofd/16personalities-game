@@ -1,9 +1,10 @@
 <script>
     import {changePage} from '../stores';
-    export let button_text = "Select";
+    export let buttonText = "Select";
+    export let callback = () => {};
   </script>
   
-  <button on:click={() => changePage(+1)}>{button_text}</button>
+  <button on:click={() => {callback(); changePage(+1)}}>{buttonText}</button>
   
   <style>
     button {
