@@ -5,7 +5,9 @@
 
 </script>
 
+<h1>Select a situation</h1>
 <BackButton/>
+
 <div on:click={() => chosenLocation.set('Party')}
      class:selected={$chosenLocation==='Party'} class="select-button">
   <img src="./actions/community.svg" alt="party"/>
