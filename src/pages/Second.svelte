@@ -20,12 +20,9 @@
   let firstChoice = 0;
   let secondChoice = 0;
 
-
-  function saveData(){
+  $: {
     chosenFirst.set(personalities[firstChoice]);
     chosenSecond.set(personalities[secondChoice]);
-    console.log($chosenFirst);
-    console.log($chosenSecond);
   }
 </script>
 
@@ -65,13 +62,14 @@
     <h2>You chose: {personalities[secondChoice].capitalize()}</h2>
   </div>
   <div class="button-block">
-    <MainButton callback={saveData}/>
+    <MainButton/>
   </div>
 </div>
 
 <style>
   :root {
   }
+
   img {
     width: 70%;
     height: auto;
@@ -81,9 +79,11 @@
   h1, h2 {
     text-align: center;
   }
-  h1{
+
+  h1 {
     font-size: var(--hero-fontsize);
   }
+
   h2 {
     font-size: var(--plain-fontsize);
   }
@@ -120,6 +120,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .button-block {
     display: grid;
     place-items: center;
