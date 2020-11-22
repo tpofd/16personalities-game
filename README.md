@@ -40,6 +40,17 @@ Then start the project
 npm run dev
 ```
 
+## 🐳 You can also use Docker
+Build the image
+```bash
+docker build -t frontend .
+```
+
+Then run a container
+```bash
+docker run -p 80:80 -d frontend
+```
+
 ## 💻 Demo
 
 Deployed app is available here: https://16personalities-game.blackbrainvip.vercel.app/
