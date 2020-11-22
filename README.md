@@ -1,5 +1,5 @@
 ![Project Image](https://static.neris-assets.com/images/homepage/community.svg)
-![Website](https://img.shields.io/website?down_message=demo&up_color=blue&up_message=demo&url=https%3A%2F%2F16personalities-game.blackbrainvip.vercel.app%2F) ![GitHub Repo stars](https://img.shields.io/github/stars/tpofd/16personalities-game?style=social)
+![Technology](https://img.shields.io/badge/svelte-svelte--v3-red) ![Website](https://img.shields.io/website?down_message=demo&up_color=blue&up_message=demo&url=https%3A%2F%2F16personalities-game.blackbrainvip.vercel.app%2F) ![GitHub Repo stars](https://img.shields.io/github/stars/tpofd/16personalities-game?style=social)
 
 ## 🗒 Content
 * [Project description](https://github.com/tpofd/16personalities-game/blob/main/README.md#project-description)
