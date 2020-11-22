@@ -21,14 +21,18 @@
     }
   }
 
-  let [description, plot, vs, me_left] = getPlot();
+  let description, plot, vs, me_left;
+  let data = getPlot();
+  if (data !== null) {
+      [description, plot, vs, me_left] = data;
+  }
 </script>
 
 <BackButton/>
 <div class="page">
   <h1>Political debate</h1>
   <img src="./dialogs/politics.svg" alt="Dialog image">
-  {#if plot === null}
+  {#if plot === undefined}
     <h1>Plot with types {personalities[$formsStore.firstChoice]} and
       {personalities[$formsStore.secondChoice]} not found!</h1>
   {:else}
