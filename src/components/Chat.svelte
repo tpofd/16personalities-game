@@ -13,12 +13,13 @@
   let currentQuestion = plot.starting;
   let div;
   let autoscroll;
-  let colors = {"logician": "#3f8f6f", "protagonist": "#594265"};
+  let colors = {"logician": "#3f8f6f", "protagonist": "#594265", "commander": "#3f8f6f"};
   let answerA = 'A';
   let answerB = 'B';
   let buttonsDisabled = true;
   let timer;
 
+  let end = false;
 
   beforeUpdate(() => {
     autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
@@ -40,7 +41,8 @@
         author: 'story',
         text: 'This is the end!',
       });
-      setTimeout(() => changePage(+1), 2000)
+      // setTimeout(() => changePage(+1), 2000)
+      end = true;
       return;
     }
     if (question.person === me) {
@@ -111,12 +113,18 @@
   </div>
   <div class="timer"><p>00:05</p></div>
   <div class="button-block">
+    {#if !end}
+
     <!--    <button on:click={() => send(answerA)}><span>{answerA}</span></button>-->
     <!--    <button on:click={() => send(answerA)}><span>{answerA}</span></button>-->
     <!--    <button on:click={() => send(answerB)}><span>{answerB}</span></button>-->
-    <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerA)} buttonText={answerA}/>
-    <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerB)} buttonText={answerB}/>
+      <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerA)} buttonText={answerA}/>
+      <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerB)} buttonText={answerB}/>
+    {:else}
+      <MainButton buttonText="Finish!"/>
+    {/if}
   </div>
+
 </div>
 
 
@@ -142,8 +150,7 @@
     margin: 0.5em 0;
   }
 
-  /* should be imported*/
-  .logician {
+  .logician, .commander {
     text-align: left;
   }
 
@@ -164,7 +171,7 @@
     border-radius: 1em 1em 0 1em;
   }
 
-  .logician span {
+  .logician span, .commander span {
     background-color: #594265;
     color: white;
     border-radius: 1em 1em 1em 0;

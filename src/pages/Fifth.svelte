@@ -2,7 +2,7 @@
   import BackButton from '../components/BackButton.svelte';
   import MainButton from '../components/MainButton.svelte';
   import ShareButtons from '../components/ShareButtons.svelte'
-  import { formsStore } from '../stores';
+  import { formsStore, pagesStore } from '../stores';
 
   let number = getRandomArbitrary(1, 9);
 
@@ -26,7 +26,7 @@
   <p>If you liked our app, share it with your friends and post your memes using the hashtag #16personalities</p>
 </div>
 <ShareButtons/>
-<MainButton buttonText={text}/>
+<MainButton buttonText={text} callback={() => $pagesStore.current = 0}/>
 
 <style>
   h1 {
