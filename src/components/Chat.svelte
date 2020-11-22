@@ -19,6 +19,7 @@
   let buttonsDisabled = true;
   let timer;
 
+  let end = false;
 
   beforeUpdate(() => {
     autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
@@ -40,7 +41,8 @@
         author: 'story',
         text: 'This is the end!',
       });
-      setTimeout(() => changePage(+1), 2000)
+      // setTimeout(() => changePage(+1), 2000)
+      end = true;
       return;
     }
     if (question.person === me) {
@@ -111,12 +113,18 @@
   </div>
   <div class="timer"><p>00:05</p></div>
   <div class="button-block">
+    {#if !end}
+
     <!--    <button on:click={() => send(answerA)}><span>{answerA}</span></button>-->
     <!--    <button on:click={() => send(answerA)}><span>{answerA}</span></button>-->
     <!--    <button on:click={() => send(answerB)}><span>{answerB}</span></button>-->
-    <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerA)} buttonText={answerA}/>
-    <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerB)} buttonText={answerB}/>
+      <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerA)} buttonText={answerA}/>
+      <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerB)} buttonText={answerB}/>
+    {:else}
+      <MainButton buttonText="Finish!"/>
+    {/if}
   </div>
+
 </div>
 
 
