@@ -2,8 +2,7 @@
   import {beforeUpdate, afterUpdate} from 'svelte';
   import {fly} from 'svelte/transition';
   import MainButton from '../components/MainButton.svelte';
-  import {formsStore} from '../stores';
-
+  import {formsStore, changePage} from '../stores';
 
   export let plot;
   export let description;
@@ -37,7 +36,12 @@
   function replyQuestion(){
     let question = plot.questions[currentQuestion];
     if (question === undefined){
-      alert(JSON.stringify(question))
+      comments = comments.concat({
+        author: 'story',
+        text: 'This is the end!',
+      });
+      setTimeout(() => changePage(+1), 2000)
+      return;
     }
     if (question.person === me) {
       comments = comments.concat({
@@ -60,7 +64,6 @@
 
   function getAnswer() {
     const variant = plot.questions[currentQuestion].variants[getRandomArbitrary(0, 1)];
-    // alert(JSON.stringify(plot.variants[variant].next_question))
     currentQuestion = plot.variants[variant].next_question;
     setTimeout(() => {
       comments = comments.concat({
@@ -88,10 +91,10 @@
       text: choice
     });
     currentQuestion = plot.variants[choice].next_question;
-    // $formsStore.score += plot.variants[choice].points;
-    // if (plot.variants[choice].achievement){
-    //   $formsStore.achievements = $formsStore.achievements.concat(plot.variants[choice].achievement)
-    // }
+    $formsStore.score += plot.variants[choice].points;
+    if (plot.variants[choice].achievement){
+      $formsStore.achievements = $formsStore.achievements.concat(plot.variants[choice].achievement)
+    }
     replyQuestion();
   }
 

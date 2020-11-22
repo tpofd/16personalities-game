@@ -22,7 +22,6 @@ export function changePage(value) {
   let store = get(pagesStore);
   let current = store.current;
   let updated = current + value;
-
   if (-1 < updated && updated < store.amount) {
     pagesStore.update(obj => {
       obj.last = current;

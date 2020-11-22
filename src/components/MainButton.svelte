@@ -2,12 +2,11 @@
   import {changePage} from '../stores';
 
   export let buttonText = "Select";
-  export let callback = () => {
-  };
+  export let callback = () => changePage(+1);
   export let disabled = false;
 </script>
 
-<button {disabled} on:click={() => {callback(); changePage(+1)}}>{buttonText}</button>
+<button {disabled} on:click={callback}>{buttonText}</button>
 
 <style>
   button {
@@ -29,9 +28,9 @@
     border-color: #3C9294;
   }
 
-  button:focus {
-    background: gainsboro;
-  }
+  /*button:focus {*/
+  /*  background: gainsboro;*/
+  /*}*/
 
   button:disabled {
     background: #cccccc;

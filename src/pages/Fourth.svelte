@@ -3,30 +3,6 @@
   import {personalities, formsStore, getPers} from '../stores';
   import BackButton from '../components/BackButton.svelte';
   import {plots} from '../api';
-  // let plots = {
-  //   'Party': {},
-  //   'Political debate': {
-  //     description: 'Март 2020 года. Совсем скоро начнется предвыборная гонка в президенты США. Сегодня секретарь принес вам полное досье на вашего главного противника. Теперь у вас есть полный анализ его личности, слабые и сильные стороны. Анализируйте ситуацию, принимайте обдуманные решения и именно вы сможете попасть в Белый дом. ',
-  //     'logician_protagonist': {
-  //       starting: 'Вопрос 1',
-  //       questions: {
-  //         'Вопрос 1': {
-  //           description: 'Первый шаг - самый главный. С чего начнете предвыборную гонку?',
-  //           person: 'scientist',
-  //           variants: ['Вариант 1', 'Вариант 2']
-  //         }
-  //       },
-  //       variants: {
-  //         'Вариант 1': {
-  //           points: 1,
-  //           achievement: {name: '', emoji: ''},
-  //           next_question: 'Вопрос 2.2'
-  //         }
-  //       }
-  //     },
-  //     'commander_protagonist': {}
-  //   }
-  // }
 
   const [p1, p2] = getPers();
 
