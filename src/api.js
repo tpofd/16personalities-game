@@ -137,7 +137,7 @@ export const plots =
         questions: {
           "Question 1": {
             description: "The first step is the most important. How do you start your election campaign?",
-            person: "logician",
+            person: "commander",
             variants: [
               "I will write a provocative post on Twitter to bring a sensitive opponent to the conflict",
               "I will tell about examples of the opponent's intolerance to certain sexual minorities"
@@ -169,7 +169,7 @@ export const plots =
           },
           "Question 4.1": {
             description: "Your opponent told you about your weak side. The media conducted an analysis of the your election campaign distorting some of the wording. Your rating has dropped. What will you do?",
-            person: "logician",
+            person: "commander",
             variants: [
               "Will post an article with simplified explanations of the main points of my election campaign",
               "Will give an interview where I will tell you how much my election campaign is better than my opponent's company"
@@ -177,7 +177,7 @@ export const plots =
           },
           "Question 4.2": {
             description: "The opponent announced some unpleasant details about your family's personal life. What'll we do?",
-            person: "logician",
+            person: "commander",
             variants: [
               "Will call this behavior unacceptable for the future President of the United States",
               "I'll return the favor and ask the assistant to find dirt on his family"

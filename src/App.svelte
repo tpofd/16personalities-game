@@ -13,11 +13,11 @@
   import {pagesStore} from './stores';
 
   const pages = [
-    First,
+    // First,
     Second,
     Third,
     Fourth,
-    Fifth
+    // Fifth
   ];
   $pagesStore.amount = pages.length;
 
