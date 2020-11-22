@@ -9,7 +9,6 @@
   import Third from './pages/Third.svelte';
   import Fourth from './pages/Fourth.svelte';
   import Fifth from './pages/Fifth.svelte';
-  // import {currentPage, changePage, pagesAmount, lastPage} from './stores';
   import {pagesStore} from './stores';
 
   const pages = [

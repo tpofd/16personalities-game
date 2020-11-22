@@ -3,6 +3,8 @@
   import MainButton from '../components/MainButton.svelte';
   import ShareButtons from '../components/ShareButtons.svelte'
   import {formsStore, pagesStore} from '../stores';
+  import {idbKeyval} from '../db';
+  import {onMount} from 'svelte';
 
   let number = getRandomArbitrary(1, 9);
 
@@ -14,6 +16,14 @@
 
   let text = "Main page";
   let achievements = Array.from(new Set($formsStore.achievements));
+
+  onMount(async () => {
+      await idbKeyval.set("formStore", JSON.stringify($formsStore));
+      console.log('Successfully saved in IndexDB');
+    }
+  );
+
+
 </script>
 
 <BackButton/>
@@ -77,6 +87,7 @@
     justify-content: center;
     align-items: center;
   }
+
   /*.button {*/
   /*  max-width: 300px;*/
   /*  display: flex;*/
