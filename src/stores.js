@@ -1,8 +1,33 @@
 import {writable, get} from 'svelte/store';
-import { openDB } from 'idb/with-async-ittr.js';
+import { openDB } from 'idb';
 
 // localStorage.removeItem("formsStore")
 // localStorage.removeItem("pagesStore")
+
+const dbPromise = openDB('keyval-store', 1, {
+  upgrade(db) {
+    db.createObjectStore('keyval');
+  },
+});
+
+const idbKeyval = {
+  async get(key) {
+    return (await dbPromise).get('keyval', key);
+  },
+  async set(key, val) {
+    return (await dbPromise).put('keyval', JSON.stringify(val), key);
+  },
+  async delete(key) {
+    return (await dbPromise).delete('keyval', key);
+  },
+  async clear() {
+    return (await dbPromise).clear('keyval');
+  },
+  async keys() {
+    return (await dbPromise).getAllKeys('keyval');
+  },
+};
+
 
 export const personalities = ['commander', 'logician', 'protagonist'];
 
@@ -15,7 +40,6 @@ saved = JSON.parse(localStorage.getItem("formsStore"))
 export const formsStore = writable(saved || {firstChoice: 0,
   secondChoice: 0, location: "", score: 0, achievements: []});
 formsStore.subscribe(val => localStorage.setItem("formsStore", JSON.stringify(val)));
-
 
 export function changePage(value) {
   let store = get(pagesStore);

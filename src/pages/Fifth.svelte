@@ -2,7 +2,7 @@
   import BackButton from '../components/BackButton.svelte';
   import MainButton from '../components/MainButton.svelte';
   import ShareButtons from '../components/ShareButtons.svelte'
-import { formsStore } from '../stores';
+  import { formsStore } from '../stores';
 
   let number = getRandomArbitrary(1, 9);
 
@@ -13,13 +13,16 @@ import { formsStore } from '../stores';
   let img_path = './memes/' + number + '.jpg'
 
   let text = "Main page";
+
+  let achive = $formsStore.achievements
 </script>
 
 <BackButton/>
 <h1>Thank you</h1>
 <div class="img-final">
   <img src={img_path} alt="meme"/>
-  {$formsStore.score}
+  <h1>Your score: {$formsStore.score}</h1>
+  <p>You achive {achive[0]}</p>
   <p>If you liked our app, share it with your friends and post your memes using the hashtag #16personalities</p>
 </div>
 <ShareButtons/>
@@ -28,6 +31,7 @@ import { formsStore } from '../stores';
 <style>
   h1 {
     color: #3C9294;
+    text-align: center;
     font-size: var(--hero-fontsize);
   }
 

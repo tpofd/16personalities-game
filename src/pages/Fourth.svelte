@@ -1,6 +1,6 @@
 <script>
   import Chat from '../components/Chat.svelte';
-  import {personalities, formsStore, getPers} from '../stores';
+  import {personalities, formsStore, getPers } from '../stores';
   import BackButton from '../components/BackButton.svelte';
   import {plots} from '../api';
 
