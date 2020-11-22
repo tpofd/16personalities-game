@@ -1,5 +1,7 @@
 <script>
-  import Chat from '../components/Chat.svelte'
+  import Chat from '../components/Chat.svelte';
+  import {formsStore} from '../stores';
+  import BackButton from '../components/BackButton.svelte';
 
   let plots = {
     'Party': {},
@@ -17,7 +19,7 @@
         variants: {
           'Вариант 1': {
             points: 1,
-            achievement: null,
+            achievement: {name: '', emoji: ''},
             next_question: 'Вопрос 2.2'
           }
         }
@@ -26,10 +28,15 @@
       }
     }
   }
+  function getPlot(){
+    let type = plots[$formsStore.location];
+
+  }
 
   let history = [];
 </script>
 
+<BackButton/>
 <div class="page">
   <h1>Political debate</h1>
   <img src="./dialogs/politics.svg" alt="Dialog image">

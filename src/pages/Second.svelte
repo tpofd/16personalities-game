@@ -16,6 +16,8 @@
     showIndicators: true,
     transitionDuration: 1000,
   };
+
+  $: disabled = $formsStore.firstChoice === $formsStore.secondChoice;
 </script>
 
 <div class="page">
@@ -54,15 +56,13 @@
     </div>
     <h2>You chose: {personalities[$formsStore.secondChoice].capitalize()}</h2>
   </div>
+  <p class:hide={!disabled}>Choose different types</p>
   <div class="button-block">
-    <MainButton/>
+    <MainButton {disabled}/>
   </div>
 </div>
 
 <style>
-  :root {
-  }
-
   img {
     width: 70%;
     height: auto;
@@ -118,5 +118,8 @@
     display: grid;
     place-items: center;
     height: 200px;
+  }
+  .hide {
+    opacity: 0;
   }
 </style>
