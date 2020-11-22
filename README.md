@@ -1,7 +1,13 @@
 ![Project Image](https://static.neris-assets.com/images/homepage/community.svg)
+![Website](https://img.shields.io/website?down_message=demo&up_color=blue&up_message=demo&url=https%3A%2F%2F16personalities-game.blackbrainvip.vercel.app%2F) ![GitHub Repo stars](https://img.shields.io/github/stars/tpofd/16personalities-game?style=social)
 
 ## Content
-* [
+* [Project description](https://github.com/tpofd/16personalities-game/blob/main/README.md#project-description)
+* [Used API](https://github.com/tpofd/16personalities-game/blob/main/README.md#used-api)
+* [Technology](https://github.com/tpofd/16personalities-game/blob/main/README.md#technology)
+* [Get started](https://github.com/tpofd/16personalities-game/blob/main/README.md#get-started)
+* [Demo](https://github.com/tpofd/16personalities-game/blob/main/README.md#demo)
+* [Authors](https://github.com/tpofd/16personalities-game/blob/main/README.md#demo)
 
 ## Project description
 
