@@ -55,6 +55,10 @@ docker run -p 80:80 -d frontend
 
 Deployed app is available here: https://16personalities-game.blackbrainvip.vercel.app/
 
+## 🎇 Video
+
+[![](https://res.cloudinary.com/marcomontalbano/image/upload/v1606050646/video_to_markdown/images/youtube--eoisnBv9ryQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/eoisnBv9ryQ "")
+
 ## 🧓 Authors
 
 [@glushenkovIG](https://github.com/glushenkovIG) - Team Leader  
