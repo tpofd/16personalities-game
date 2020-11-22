@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: var(--hero-fontsize);
+    font-size: calc(var(--plain-fontsize) - 5px);
     padding: 10px 30px;
   }
 
