@@ -2,6 +2,7 @@
   import BackButton from '../components/BackButton.svelte';
   import MainButton from '../components/MainButton.svelte';
   import ShareButtons from '../components/ShareButtons.svelte'
+import { formsStore } from '../stores';
 
   let number = getRandomArbitrary(1, 9);
 
@@ -18,6 +19,7 @@
 <h1>Thank you</h1>
 <div class="img-final">
   <img src={img_path} alt="meme"/>
+  {$formsStore.score}
   <p>If you liked our app, share it with your friends and post your memes using the hashtag #16personalities</p>
 </div>
 <ShareButtons/>

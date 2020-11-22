@@ -1,11 +1,10 @@
 import {writable, get} from 'svelte/store';
-
+import { openDB } from 'idb/with-async-ittr.js';
 
 // localStorage.removeItem("formsStore")
 // localStorage.removeItem("pagesStore")
 
 export const personalities = ['commander', 'logician', 'protagonist'];
-
 
 let saved = JSON.parse(localStorage.getItem("pagesStore"))
 export const pagesStore = writable(saved || {current: 0, last: 0, amount: 0});
