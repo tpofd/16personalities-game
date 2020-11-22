@@ -1,7 +1,7 @@
 ![Project Image](https://static.neris-assets.com/images/homepage/community.svg)
 ![Website](https://img.shields.io/website?down_message=demo&up_color=blue&up_message=demo&url=https%3A%2F%2F16personalities-game.blackbrainvip.vercel.app%2F) ![GitHub Repo stars](https://img.shields.io/github/stars/tpofd/16personalities-game?style=social)
 
-## Content
+## 🗒 Content
 * [Project description](https://github.com/tpofd/16personalities-game/blob/main/README.md#project-description)
 * [Used API](https://github.com/tpofd/16personalities-game/blob/main/README.md#used-api)
 * [Technology](https://github.com/tpofd/16personalities-game/blob/main/README.md#technology)
@@ -9,24 +9,24 @@
 * [Demo](https://github.com/tpofd/16personalities-game/blob/main/README.md#demo)
 * [Authors](https://github.com/tpofd/16personalities-game/blob/main/README.md#demo)
 
-## Project description
+## 😃 Project description
 
 Web-based game with 3 heroes for you and your friends and two locations where you’ll act in and game experience is strongly personalised because of [16personalities](https://www.16personalities.com/) test results.
 
-## Used API
+## ⚙️ Used API
 
 * [x] Web Storage API
 * [x] IndexedDB
 * [x] Web Animations
 
-## Technology
+## 🔧 Technology
 
 * Svelte.js
 * JavaScript
 * HTML
 * CSS
 
-## Get started
+## 🚀 Get started
 
 Install the dependencie
 
@@ -40,11 +40,11 @@ Then start the project
 npm run dev
 ```
 
-## Demo
+## 💻 Demo
 
 Deployed app is available here: https://16personalities-game.blackbrainvip.vercel.app/
 
-## Authors
+## 🧓 Authors
 
 [@glushenkovIG](https://github.com/glushenkovIG) - Team Leader  
 [@Dikower](https://github.com/Dikower) - Main Developer  
