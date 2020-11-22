@@ -1,7 +1,6 @@
-import {writable} from 'svelte';
 // fetch and etc...
 
-export const dataStore = writable(
+export const plots =
   {
     "Party": {},
     "Political debate": {
@@ -13,7 +12,7 @@ export const dataStore = writable(
             description: "The first step is the most important. How do you start your election campaign?",
             person: "logician",
             variants: [
-              "I will write a provocative post on Twitter to bring a sensitive opponent to the conflict", 
+              "I will write a provocative post on Twitter to bring a sensitive opponent to the conflict",
               "I will tell about examples of the opponent's intolerance to certain sexual minorities"
             ]
           },
@@ -140,7 +139,7 @@ export const dataStore = writable(
             description: "The first step is the most important. How do you start your election campaign?",
             person: "logician",
             variants: [
-              "I will write a provocative post on Twitter to bring a sensitive opponent to the conflict", 
+              "I will write a provocative post on Twitter to bring a sensitive opponent to the conflict",
               "I will tell about examples of the opponent's intolerance to certain sexual minorities"
             ]
           },
@@ -262,4 +261,4 @@ export const dataStore = writable(
       }
     }
   }
-)
+

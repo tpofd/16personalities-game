@@ -3,13 +3,9 @@
   import {Swipe, SwipeItem} from "svelte-swipe"; // gzipped 3.37 KB
   import BackButton from '../components/BackButton.svelte';
   import MainButton from '../components/MainButton.svelte';
-  import {formsStore} from '../stores';
+  import {personalities, formsStore} from '../stores';
 
-  String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-  }
 
-  const personalities = ['commander', 'logician', 'protagonist'];
   const swipeConfig = {
     autoplay: false,
     delay: 2000,

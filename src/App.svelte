@@ -8,7 +8,7 @@
   import Second from './pages/Second.svelte';
   import Third from './pages/Third.svelte';
   import Fourth from './pages/Fourth.svelte';
-  // import Fifth from './pages/Fifth.svelte';
+  import Fifth from './pages/Fifth.svelte';
   // import {currentPage, changePage, pagesAmount, lastPage} from './stores';
   import {pagesStore} from './stores';
 
@@ -17,9 +17,13 @@
     Second,
     Third,
     Fourth,
-    // Fifth
+    Fifth
   ];
   $pagesStore.amount = pages.length;
+
+  String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  }
 
 </script>
 
@@ -40,7 +44,7 @@
 <style>
   :root {
     --hero-fontsize: calc((100vw - 480px) / (1280 - 480) * (32 - 15) + 15px);
-    --plain-fontsize: calc((100vw - 480px) / (1280 - 480) * (24 - 16) + 16px);
+    --plain-fontsize: calc((100vw - 480px) / (1280 - 480) * (22 - 15) + 15px);
   }
 
   :global(body) {

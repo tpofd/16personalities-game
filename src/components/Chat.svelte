@@ -1,13 +1,25 @@
 <script>
   import {beforeUpdate, afterUpdate} from 'svelte';
   import {fly} from 'svelte/transition';
+  import MainButton from '../components/MainButton.svelte';
+  import {formsStore} from '../stores';
 
+
+  export let plot;
+  export let description;
+  export let me_left;
+  export let me;
+  export let op;
+
+  let currentQuestion = plot.starting;
   let div;
   let autoscroll;
-  let colors = {me: "#3f8f6f", someone: "#594265"};
-
+  let colors = {"logician": "#3f8f6f", "protagonist": "#594265"};
   let answerA = 'A';
   let answerB = 'B';
+  let buttonsDisabled = true;
+  let timer;
+
 
   beforeUpdate(() => {
     autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
@@ -19,55 +31,99 @@
 
 
   let comments = [
-    {author: 'someone', text: 'Hello!'}
+    {author: 'story', text: description}
   ];
 
-  function send(choice) {
-    comments = comments.concat({
-      author: 'me',
-      text: choice
-    });
-    const reply = 'B. Obama - ' + choice;
+  function replyQuestion(){
+    let question = plot.questions[currentQuestion];
+    if (question === undefined){
+      alert(JSON.stringify(question))
+    }
+    if (question.person === me) {
+      comments = comments.concat({
+        author: 'story',
+        text: question.description,
+      });
+      //  TODO: timer
+      [answerA, answerB] = question.variants;
+      buttonsDisabled = false;
 
+    } else {
+      comments = comments.concat({
+        author: 'story',
+        text: 'Waiting for opponent...',
+      });
+      buttonsDisabled = true;
+      getAnswer();
+    }
+  }
+
+  function getAnswer() {
+    const variant = plot.questions[currentQuestion].variants[getRandomArbitrary(0, 1)];
+    // alert(JSON.stringify(plot.variants[variant].next_question))
+    currentQuestion = plot.variants[variant].next_question;
     setTimeout(() => {
       comments = comments.concat({
-        author: 'someone',
+        author: op,
         text: '...',
         placeholder: true
       });
-
       setTimeout(() => {
         comments = comments.filter(comment => !comment.placeholder).concat({
-          author: 'someone',
-          text: reply
+          author: op,
+          text: variant
         });
+        replyQuestion()
       }, 500 + Math.random() * 500);
     }, 200 + Math.random() * 200);
   }
+
+  function getRandomArbitrary(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  function sendAnswer(choice) {
+    comments = comments.concat({
+      author: me,
+      text: choice
+    });
+    currentQuestion = plot.variants[choice].next_question;
+    // $formsStore.score += plot.variants[choice].points;
+    // if (plot.variants[choice].achievement){
+    //   $formsStore.achievements = $formsStore.achievements.concat(plot.variants[choice].achievement)
+    // }
+    replyQuestion();
+  }
+
+  replyQuestion();
 </script>
 
-<div class="chat" style="--me-color: {colors.me}; --someone-color: {colors.someone}">
+<div class="chat">
   <div class="scrollable" bind:this={div}>
     {#each comments as comment}
       <article class={comment.author}>
-        <span>{comment.text}</span>
+        <span in:fly={{y: 5}}>{comment.text}</span>
       </article>
     {/each}
   </div>
-  <div class="timer"></div>
+  <div class="timer"><p>00:05</p></div>
   <div class="button-block">
-    <button on:click={() => send(answerA)}><span>{answerA}</span></button>
-    <button on:click={() => send(answerB)}><span>{answerB}</span></button>
+    <!--    <button on:click={() => send(answerA)}><span>{answerA}</span></button>-->
+    <!--    <button on:click={() => send(answerA)}><span>{answerA}</span></button>-->
+    <!--    <button on:click={() => send(answerB)}><span>{answerB}</span></button>-->
+    <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerA)} buttonText={answerA}/>
+    <MainButton disabled={buttonsDisabled} callback={() => sendAnswer(answerB)} buttonText={answerB}/>
   </div>
 </div>
 
 
 <style>
+
   .chat {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 350px;
     max-width: 350px;
     width: 100%;
   }
@@ -83,12 +139,40 @@
     margin: 0.5em 0;
   }
 
-  .me {
+  /* should be imported*/
+  .logician {
+    text-align: left;
+  }
+
+  .protagonist {
     text-align: right;
   }
 
+  .story {
+    text-align: justify;
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 1em;
+  }
+
+  .protagonist span {
+    background-color: #3f8f6f;
+    color: white;
+    border-radius: 1em 1em 0 1em;
+  }
+
+  .logician span {
+    background-color: #594265;
+    color: white;
+    border-radius: 1em 1em 1em 0;
+
+  }
+
+  /*-------------------------*/
+
   button {
     width: 50%;
+    /*background: ;*/
   }
 
   button span {
@@ -100,23 +184,14 @@
   span {
     padding: 0.5em 1em;
     display: inline-block;
-  }
-
-  .someone span {
-    background-color: var(--someone-color);
-    border-radius: 1em 1em 1em 0;
-    color: white;
-  }
-
-  .me span {
-    background-color: var(--me-color);
-    color: white;
-    border-radius: 1em 1em 0 1em;
-    word-break: break-all;
+    font-size: var(--plain-fontsize);
   }
 
   .button-block {
     display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
     width: 100%;
   }
 
